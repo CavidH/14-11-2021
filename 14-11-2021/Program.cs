@@ -26,15 +26,14 @@ namespace _14_11_2021
             // yaratdiqmiz dir de olan fayli copy edirik
             foreach (FileInfo file in DefaultPath.GetFiles())
             {
-                Console.WriteLine(@"Copying {0}\{1}", CopyPath.FullName, file.Name);
+
                 file.CopyTo(Path.Combine(CopyPath.FullName, file.Name), true);
             }
 
-          
+
             foreach (DirectoryInfo DefaultPathDir in DefaultPath.GetDirectories())
             {
-                DirectoryInfo SubDirector =
-                    CopyPath.CreateSubdirectory(DefaultPathDir.Name);
+                DirectoryInfo SubDirector = CopyPath.CreateSubdirectory(DefaultPathDir.Name);
                 CopyDirWithContent(DefaultPathDir, SubDirector);
             }
         }
